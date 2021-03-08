@@ -11,18 +11,19 @@ import moment from 'moment';
 const Book = ({ book }) => {
     // const classes = useStyles();
     return(
-       <Card >
-           <CardMedia>{book.booktitle}</CardMedia>
-           <CardMedia src={book.selectedFile}/>
+       <Card>
+           <Typography variant="h3">{book.booktitle}</Typography>
+           {/* <CardMedia image={book.selectedFile} /> */}
+           <img src={book.selectedFile} height="320" width="350"/>
            <div>
                <Typography variant="h6">Posted By: {book.username}</Typography>
                <Typography variant="body2">{moment(book.createdAt).fromNow()}</Typography>
            </div>
-           <div>
+           {/* <div>
                <Button style={{color: 'white'}} size="small" onClick={()=>{}}>
                    <MoreHorizIcon fontSize="default"/>
                </Button>
-           </div>
+           </div> */}
            {/* <div>
                 <Typography variant="body2" color="textSecondary">{book.tags.map((tag) => '#${tag} ')}</Typography>
            </div> */}
