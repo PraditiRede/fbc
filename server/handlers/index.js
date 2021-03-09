@@ -1,5 +1,8 @@
 module.exports = {
   ...require("./auth"),
+  ...require("./friends"),
+  ...require("./profileUpdate"),
+  ...require("./inventory"),
 };
 
 module.exports.notFound = (req, res, next) => {
