@@ -18,6 +18,9 @@ app.listen(4000, function () {
 
 app.use('/', routes.auth);
 app.use('/', booksRoutes);
+app.use("/api/friends", routes.friends);
+app.use("/api/profile", routes.profileUpdate);
+app.use("/api/inventory", routes.inventory);
 
 app.use(handle.notFound);
 app.use(handle.errors);
