@@ -6,19 +6,19 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment';
 // import { post } from '../../../../../server/routes/auth';
 
-// import useStyles from './styles';
+import useStyles from './styles';
 
 const Book = ({ book }) => {
-    // const classes = useStyles();
+    const classes = useStyles();
     return(
-       <Card>
-           <Typography variant="h3">{book.booktitle}</Typography>
+       <Card className={classes.card}>
+           <Typography variant="h5" className={classes.title}>Title: {book.booktitle}</Typography>
            {/* <CardMedia image={book.selectedFile} /> */}
            <img src={book.selectedFile} height="320" width="350"/>
-           <div>
+           <CardContent>
                <Typography variant="h6">Posted By: {book.username}</Typography>
-               <Typography variant="body2">{moment(book.createdAt).fromNow()}</Typography>
-           </div>
+               <Typography variant="body2">Posted {moment(book.createdAt).fromNow()}</Typography>
+           </CardContent>
            {/* <div>
                <Button style={{color: 'white'}} size="small" onClick={()=>{}}>
                    <MoreHorizIcon fontSize="default"/>
@@ -28,11 +28,11 @@ const Book = ({ book }) => {
                 <Typography variant="body2" color="textSecondary">{book.tags.map((tag) => '#${tag} ')}</Typography>
            </div> */}
            <CardContent>
-                <Typography variant="h5" gutterBottom>Author: {book.author}</Typography>
-                <Typography variant="h5" gutterBottom>Publisher: {book.publisher}</Typography>
-                <Typography variant="h5" gutterBottom>ISBN: {book.isbn}</Typography>
+                <Typography variant="h6" gutterBottom>Author: {book.author}</Typography>
+                <Typography variant="h6" gutterBottom>Publisher: {book.publisher}</Typography>
+                <Typography variant="h6" gutterBottom>ISBN: {book.isbn}</Typography>
             </CardContent>
-            <CardActions>
+            <CardActions className={classes.cardActions}>
                 <Button size="small" color="primary" onClick={()=> {}}>
                     <DeleteIcon fontSize="small" />
                     Delete
