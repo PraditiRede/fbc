@@ -9,7 +9,7 @@ exports.register = async (req, res, next) => {
     const token = jwt.sign({ id, username }, "secret");
 
     res.status(201).json({ id, username, token });
-  }catch (err) {
+  } catch (err) {
     if (err.code === 11000) {
       err.message = "Sorry that username is already taken";
     }
