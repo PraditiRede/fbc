@@ -4,11 +4,11 @@ import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { createBook } from '../../actions/books';
 
-// import useStyles from './styles';
+import useStyles from './styles';
 
 const Form = () => {
     const [bookData, setBookData] = useState({ username: '', booktitle: '', author: '', publisher: '', isbn: '', tag: ''});
-    // const classes = useStyles();
+    const classes = useStyles();
     const dispatch = useDispatch();
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,8 +19,8 @@ const Form = () => {
 
     }
     return(
-        <Paper>
-            <form autoComplete="off"  onSubmit = {handleSubmit}>
+        <Paper className={classes.paper}>
+            <form autoComplete="off"  onSubmit = {handleSubmit} className={`${classes.root} ${classes.form}`}>
                 <Typography variant="h6">Upload your Book</Typography>
                 <TextField 
                     name="username" 
@@ -70,14 +70,14 @@ const Form = () => {
                     value={bookData.tag}
                     onChange={(e) => setBookData({ ...bookData, tag: e.target.value})}
                 />
-                <div>
+                <div className={classes.fileInput}>
                     <FileBase
                         type="file"
                         multiple={false}
                         onDone={({base64}) => setBookData({ ...bookData, selectedFile: base64})}
                     />
                 </div>
-                <Button variant="contained" color="primary" size="large" type="submit" fullWidth>Upload</Button>
+                <Button variant="contained" color="primary" size="large" type="submit" fullWidth className={classes.buttonSubmit}>Upload</Button>
                 <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>        
         </Paper>
