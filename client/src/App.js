@@ -2,6 +2,11 @@ import React, { useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { getBooks } from './actions/books';
+import { BrowserRouter as Router } from 'react-router-dom'
+
+import { store } from './store'
+import RouteViews from './containers/RoutViews'
+import NavBar from './containers/NavBar'
 
 import Books from './components/Books/books';
 import Form from './components/Forms/form';
@@ -15,6 +20,10 @@ const App = () => {
   }, [dispatch]);
   return (
     <Container maxwidth='lg'>
+    <Router >
+            <NavBar />
+            <RouteViews />
+     </Router>
       <AppBar position="static" color="inherit">
         <Typography variant="h2" align="center">My Books</Typography>
       </AppBar>
