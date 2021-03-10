@@ -7,7 +7,8 @@ import { createBook } from '../../actions/books';
 import useStyles from './styles';
 
 const Form = () => {
-    const [bookData, setBookData] = useState({ username: '', booktitle: '', author: '', publisher: '', isbn: '', tag: ''});
+    // const [bookData, setBookData] = useState({ username: '', booktitle: '', author: '', publisher: '', isbn: '', tag: ''});
+    const [bookData, setBookData] = useState({ username: '', isbn: ''});
     const classes = useStyles();
     const dispatch = useDispatch();
     const handleSubmit = (e) => {
@@ -30,7 +31,7 @@ const Form = () => {
                     value={bookData.username}
                     onChange={(e) => setBookData({ ...bookData, username: e.target.value})}
                 />
-                <TextField 
+                {/* <TextField 
                     name="booktitle" 
                     variant="outlined" 
                     label="booktitle" 
@@ -53,16 +54,16 @@ const Form = () => {
                     fullWidth 
                     value={bookData.publisher}
                     onChange={(e) => setBookData({ ...bookData, publisher: e.target.value})}
-                />
+                /> */}
                 <TextField 
-                    name="isbn" 
+                    name="search" 
                     variant="outlined" 
-                    label="isbn" 
+                    label="search" 
                     fullWidth 
-                    value={bookData.isbn}
-                    onChange={(e) => setBookData({ ...bookData, isbn: e.target.value})}
+                    value={bookData.search}
+                    onChange={(e) => setBookData({ ...bookData, search: e.target.value})}
                 />
-                <TextField 
+                {/* <TextField 
                     name="tag" 
                     variant="outlined" 
                     label="tag" 
@@ -76,11 +77,12 @@ const Form = () => {
                         multiple={false}
                         onDone={({base64}) => setBookData({ ...bookData, selectedFile: base64})}
                     />
-                </div>
+                </div> */}
                 <Button variant="contained" color="primary" size="large" type="submit" fullWidth className={classes.buttonSubmit}>Upload</Button>
                 <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>        
         </Paper>
+        
     );
 }
 
