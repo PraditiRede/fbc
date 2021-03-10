@@ -4,7 +4,6 @@ import * as api from '../api';
 export const getBooks = () => async (dispatch) => {
     try{
         const { data } = await api.fetchBooks();
-
         dispatch({type: 'FETCH_ALL', payload: data});
     }catch(error){
         console.log(error.message);
@@ -20,12 +19,3 @@ export const createBook = (book) => async (dispatch) => {
     }
 }
 
-export const getfromapiBooks = () => async (dispatch) => {
-    try{
-        const { data } = await api.getapiBooks();
-
-        dispatch({type: 'FETCH_ALL', payload: data});
-    }catch(error){
-        console.log(error.message);
-    }
-}
