@@ -4,15 +4,15 @@ import { useSelector } from 'react-redux';
 import Book from './Book/book';
 import useStyles from './styles';
 
-const Books = () => {
+const Mybooks = () => {
     const books = useSelector((state) => state.books);
     const classes = useStyles();
-
     return(
         !books.length ?  <CircularProgress /> : (
-            <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+            <Grid className={classes.container}>
+                <div className={classes.title}>My Books</div>
                 {books.map((book) => (
-                    <Grid key={book._id} item xs={12} sm={6}>
+                    <Grid key={book._id} item className={classes.block}>
                         <Book book={book} />
                     </Grid>
                 ))}
@@ -21,4 +21,4 @@ const Books = () => {
     );
 }
 
-export default Books;
+export default Mybooks;
