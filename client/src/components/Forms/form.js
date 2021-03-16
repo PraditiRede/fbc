@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import FileBase from 'react-file-base64';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { createBook } from '../../actions/books';
@@ -7,14 +6,14 @@ import { createBook } from '../../actions/books';
 import useStyles from './styles';
 
 const Form = () => {
-    // const [bookData, setBookData] = useState({ username: '', booktitle: '', author: '', publisher: '', isbn: '', tag: ''});
-    const [bookData, setBookData] = useState({ username: '', isbn: ''});
+    const [bookData, setBookData] = useState({ username: '', search: ''});
     const classes = useStyles();
     const dispatch = useDispatch();
     const handleSubmit = (e) => {
         e.preventDefault();
 
         dispatch(createBook(bookData));
+        setBookData({ username: '',search: '' });
     }
     const clear = () => {
 
@@ -31,30 +30,6 @@ const Form = () => {
                     value={bookData.username}
                     onChange={(e) => setBookData({ ...bookData, username: e.target.value})}
                 />
-                {/* <TextField 
-                    name="booktitle" 
-                    variant="outlined" 
-                    label="booktitle" 
-                    fullWidth 
-                    value={bookData.booktitle}
-                    onChange={(e) => setBookData({ ...bookData, booktitle: e.target.value})}
-                />
-                <TextField 
-                    name="author" 
-                    variant="outlined" 
-                    label="author" 
-                    fullWidth 
-                    value={bookData.author}
-                    onChange={(e) => setBookData({ ...bookData, author: e.target.value})}
-                />
-                <TextField 
-                    name="publisher" 
-                    variant="outlined" 
-                    label="publisher" 
-                    fullWidth 
-                    value={bookData.publisher}
-                    onChange={(e) => setBookData({ ...bookData, publisher: e.target.value})}
-                /> */}
                 <TextField 
                     name="search" 
                     variant="outlined" 
@@ -63,23 +38,7 @@ const Form = () => {
                     value={bookData.search}
                     onChange={(e) => setBookData({ ...bookData, search: e.target.value})}
                 />
-                {/* <TextField 
-                    name="tag" 
-                    variant="outlined" 
-                    label="tag" 
-                    fullWidth 
-                    value={bookData.tag}
-                    onChange={(e) => setBookData({ ...bookData, tag: e.target.value})}
-                />
-                <div className={classes.fileInput}>
-                    <FileBase
-                        type="file"
-                        multiple={false}
-                        onDone={({base64}) => setBookData({ ...bookData, selectedFile: base64})}
-                    />
-                </div> */}
                 <Button variant="contained" color="primary" size="large" type="submit" fullWidth className={classes.buttonSubmit}>Upload</Button>
-                <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>        
         </Paper>
         
