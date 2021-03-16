@@ -2,43 +2,51 @@ import React, { useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { getBooks } from './actions/books';
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import { store } from './store'
-import RouteViews from './containers/RoutViews'
-import NavBar from './containers/NavBar'
+import { store } from './store';
+import RouteViews from './containers/RoutViews';
+import NavBar from './containers/NavBar';
 
-import Books from './components/Books/books';
-import Form from './components/Forms/form';
-// import useStyles from './styles';
+import Uploadbook from './pages/uploadbook';
+import Searchbook from './pages/searchbook';
+import Uploadbyisbn from './pages/ubisearchbook';
+import Uploadbytitle from './pages/ubtsearchbook';
+import Mybooks from './components/Books/books';
 
 const App = () => {
-  // const classes = useStyles();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBooks());
   }, [dispatch]);
   return (
     <Container maxwidth='lg'>
-    <Router >
+    <Router>
             <NavBar />
             <RouteViews />
+            <Switch>
+              <Route path="/uploadbook">
+                <Uploadbook />
+              </Route>
+              <Route path="/searchbook">
+                <Searchbook />
+              </Route>
+              <Route path="/uploadbytitle">
+                <Uploadbytitle />
+              </Route>
+              <Route path="/uploadbyisbn">
+                <Uploadbyisbn />
+              </Route>
+              <Route path="/mybooks">
+                <Mybooks />
+              </Route>
+              <div>
+                <Link to="/uploadbook">Upload Book </Link>
+                <Link to="/searchbook">Search</Link>
+                <Link to="/mybooks">My Books</Link>
+              </div>
+         </Switch>
      </Router>
-      <AppBar position="static" color="inherit">
-        <Typography variant="h2" align="center">My Books</Typography>
-      </AppBar>
-      <Grow in>
-        <Container>
-          <Grid container justify="space-betwen" alignItems="strech" spacing={3}>
-            <Grid item xs={12} sm={7} >
-                <Books />
-            </Grid>
-            <Grid item xs={12} sm={4} >
-              <Form />
-            </Grid>
-          </Grid>
-        </Container>
-      </Grow>
     </Container>
   );
 }
