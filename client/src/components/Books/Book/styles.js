@@ -43,11 +43,24 @@ export default makeStyles({
     margin: '20px',
   },
   title: {
-    padding: '0 16px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    paddingLeft: '40%',
+
   },
   cardActions: {
     padding: '0 16px 8px 16px',
     display: 'flex',
     justifyContent: 'space-between',
+  },
+  image: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    paddingLeft: '35%',
+  },
+  button: {
+    margin: '10px',
+    marginLeft: '45%',
+    backgroundColor: '#f7f7f7',
   },
 });
