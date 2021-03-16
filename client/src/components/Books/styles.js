@@ -11,4 +11,21 @@ export default makeStyles((theme) => ({
   actionDiv: {
     textAlign: 'center',
   },
+  container: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  title: {
+    fontSize: '50px',
+    marginTop: '50px',
+    marginLeft: '43%',
+    marginRight: 'auto',
+    alignItems: 'center',
+  },
+  block: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '30%',
+    margin: '10px',
+  },
 }));
