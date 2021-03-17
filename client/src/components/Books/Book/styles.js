@@ -45,7 +45,6 @@ export default makeStyles({
   title: {
     marginLeft: 'auto',
     marginRight: 'auto',
-    paddingLeft: '40%',
 
   },
   cardActions: {
@@ -56,11 +55,15 @@ export default makeStyles({
   image: {
     marginLeft: 'auto',
     marginRight: 'auto',
-    paddingLeft: '35%',
+    marginBottom: '10px',
+    // boxShadow: '0px 0px 5px #000000',
+    borderRadius: '10px',
   },
   button: {
     margin: '10px',
-    marginLeft: '45%',
     backgroundColor: '#f7f7f7',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    bottom: '0',
   },
 });
