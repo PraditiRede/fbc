@@ -9,14 +9,14 @@ const Mybooks = () => {
     const classes = useStyles();
     return(
         !books.length ?  <CircularProgress /> : (
-            <Grid className={classes.container}>
-                <div className={classes.title}>My Books</div>
+            <div className={classes.container}>
+                <div className={classes.title}>my library</div>
                 {books.map((book) => (
-                    <Grid key={book._id} item className={classes.block}>
+                    <span key={book._id} item className={classes.block}>
                         <Book book={book} />
-                    </Grid>
+                    </span>
                 ))}
-            </Grid>
+            </div>
         )
     );
 }
