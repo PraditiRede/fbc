@@ -14,18 +14,19 @@ export default makeStyles((theme) => ({
   container: {
     marginLeft: 'auto',
     marginRight: 'auto',
+    width: '60%',
   },
   title: {
     fontSize: '50px',
     marginTop: '50px',
-    marginLeft: '43%',
-    marginRight: 'auto',
+    marginLeft: '20px',
     alignItems: 'center',
+    color: '#00688B',
   },
   block: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    width: '30%',
-    margin: '10px',
+    float: 'left',
+    width: '150px',
+    height: '320px',
+    padding: '2px',
   },
 }));
