@@ -17,25 +17,23 @@ const Book = ({ book }) => {
     )
     .catch(err => console.log(err));
     return(
-        <Card >
-            <Grid >
-            { 
-                cards==undefined ? (
-                    <div>
-                        <div className={classes.invalid}>No book added yet...</div>
+        <div >
+        { 
+            cards==undefined ? (
+                <div>
+                    <div className={classes.invalid}>No book added yet...</div>
+                </div>
+            ):(
+            <div>
+                {cards.map((cards) => (
+                    <div key={cards.id} >
+                        <Bookresult cards={cards} />
                     </div>
-                ):(
-                    <Grid>
-                        {cards.map((cards) => (
-                            <Grid key={cards.id} >
-                                <Bookresult cards={cards} />
-                            </Grid>
-                        ))}
-                    </Grid>
-                )
-            }
-            </Grid>
-        </Card>
+                ))}
+            </div>
+            )
+        }
+        </div>
     );
 }
 
